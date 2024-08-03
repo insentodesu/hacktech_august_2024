@@ -1,4 +1,5 @@
 import sqlite3 as sql
+import asyncio
 
 async def open_connection():
     connect = sql.connect("base.db", check_same_thread=False)
@@ -220,3 +221,6 @@ async def select_objects(id=None):
         return object_dict
     except Exception as e:
         return {"error": str(e)}
+    
+if __name__ == "__main__":
+    asyncio.run(create_db())
